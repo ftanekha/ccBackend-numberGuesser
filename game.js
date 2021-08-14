@@ -2,34 +2,34 @@
 
 let target;
 
-const humanGuessInput = document.getElementById('human-guess');
+const humanGuessInput = document.getElementById('human-guess'),
 
-const roundNumberDisplay = document.getElementById('round-number');
+roundNumberDisplay = document.getElementById('round-number'),
 
-const computerGuessDisplay = document.getElementById('computer-guess');
-const humanScoreDisplay = document.getElementById('human-score');
-const computerScoreDisplay = document.getElementById('computer-score');
-const targetNumberDisplay = document.getElementById('target-number');
-const computerWinsDisplay = document.getElementById('computer-wins');
+computerGuessDisplay = document.getElementById('computer-guess'),
+humanScoreDisplay = document.getElementById('human-score'),
+computerScoreDisplay = document.getElementById('computer-score'),
+targetNumberDisplay = document.getElementById('target-number'),
+computerWinsDisplay = document.getElementById('computer-wins'),
 
-const guessButton = document.getElementById('guess');
-const nextRoundButton = document.getElementById('next-round')
+guessButton = document.getElementById('guess'),
+nextRoundButton = document.getElementById('next-round')
 
 guessButton.addEventListener('click', () => {
   // Generate the target value
   target = generateTarget();
   // Retrieve the player's guess
-  const currentHumanGuess = humanGuessInput.value;
+  const currentHumanGuess = humanGuessInput.value,
   // Make a random 'computer guess'
-  const computerGuess = Math.floor(Math.random() * 10);
+  computerGuess = Math.floor(Math.random() * 10);
 
   // Display the computer guess and the target
   computerGuessDisplay.innerText = computerGuess;
   targetNumberDisplay.innerText = target;
   
   // Determine if the human or computer wins:
-  const humanIsWinner = compareGuesses(currentHumanGuess, computerGuess, target)
-  const winner = humanIsWinner ? 'human' : 'computer'
+  const humanIsWinner = compareGuesses(currentHumanGuess, computerGuess, target),
+  winner = humanIsWinner ? 'human' : 'computer';
 
   // Update the correct score:
   updateScore(winner);
@@ -37,7 +37,7 @@ guessButton.addEventListener('click', () => {
   // Display the winner
   if (humanIsWinner) {
     guessButton.innerText = 'You Win!!!!!';
-    guessButton.classList.toggle('winning-text')
+    guessButton.classList.toggle('winning-text');
   } else {
     computerWinsDisplay.innerText = 'Computer Wins!!!';
   }
@@ -72,8 +72,8 @@ nextRoundButton.addEventListener('click', () => {
   guessButton.classList.remove('winning-text');
 });
 
-const addButton = document.getElementById('add');
-const subtractButton = document.getElementById('subtract');
+const addButton = document.getElementById('add'),
+subtractButton = document.getElementById('subtract');
 
 addButton.addEventListener('click', () => {
   humanGuessInput.value = +humanGuessInput.value + 1;
